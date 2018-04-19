@@ -1,0 +1,12 @@
+logging:
+  config: classpath:config/log4j2-spring.xml
+
+server:
+  port: 8081
+
+user:
+  list:
+    - username: yjy1
+      password: 123
+    - username: yjy2
+      password: 456

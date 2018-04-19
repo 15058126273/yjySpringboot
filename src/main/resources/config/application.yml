@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+
+debug: false
+
+app:
+  name: yjyboot
+  description: description about ${app.name} application
