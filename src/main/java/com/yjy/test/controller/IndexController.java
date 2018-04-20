@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/index")
-@PropertySource(value = {"/config/my.properties", "/config/user.yml"})
+@PropertySource(value = {"/config/my.properties"})
 public class IndexController {
 
     private static final Logger log = LoggerFactory.getLogger(IndexController.class);
@@ -52,8 +52,6 @@ public class IndexController {
     private String appDescription;
     @Value("${key1}")
     private String key1;
-    @Value("${userkey1}")
-    private String userkey1;
     @Value("${user.list[0].username}")
     private String username;
 
@@ -66,7 +64,7 @@ public class IndexController {
                 what, appName, appDescription, username);
 
         // properties
-        System.out.printf("key1: %s, \n userkey1: %s \n", key1, userkey1);
+        System.out.printf("key1: %s, \n ", key1);
 
         // program arguments
         boolean debug = applicationArguments.containsOption("debug");
@@ -89,11 +87,10 @@ public class IndexController {
         return "Hello World! " + request.getRequestURL();
     }
 
-    @ResponseBody
     @RequestMapping(value = "/{param}")
     public String bye(@PathVariable String param, HttpServletRequest request) {
         log.info("param: {}", param);
-        return param;
+        return "hello";
     }
 
 }

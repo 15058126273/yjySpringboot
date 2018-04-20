@@ -1,6 +1,10 @@
 spring:
   profiles:
     active: dev
+  resources:
+    static-locations: /resources/**
+  mvc:
+    static-path-pattern: /resources/**
 
 debug: false
 
