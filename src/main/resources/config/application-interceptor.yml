@@ -1,0 +1,23 @@
+front:
+  login:
+    excludeUrls:
+      - /hello.sv
+      - /hello2.sv
+      - /index.jtk
+      - /autho.jtk
+      - /code.jtk
+      - /checkLogin.jtk
+      - /checkUser.jtk
+      - /test.jtk
+      - /wxPay/notify.jtk
+      - /api/list.jtk
+      - /api/deposit.jtk
+      - /config/wechat.jtk
+
+back:
+  login:
+    excludeUrls:
+      - /login.do
+      - /logout.do
+      - /game/scores.do
+      - /game/dayScore.do

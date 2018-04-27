@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 800px;
+}
+div.update {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    height: 300px;
+    z-index: 1000;
+    background: #288ce2;
+    border-radius: 4px;
+    display: none;
+    user-select: none;
+}
+
+div.update p:nth-child(1) {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    font-size: 18px;
+    position: relative;
+    user-select: none;
+    margin: 20px 0;
+}
+
+div.update p:nth-child(1) span {
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background: #aaa;
+    top: -15px;
+    right: 5px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+
+div.update p:nth-child(2) {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+div.update p:nth-child(2) span {
+    padding: 0 10px;
+    color: #ffdf36;
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -1,6 +1,6 @@
 package com.yjy.test.property;
 
-import com.yjy.test.entity.User;
+import com.yjy.test.game.entity.User;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;

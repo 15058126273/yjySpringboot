@@ -1,12 +1,15 @@
 spring:
   profiles:
     active: dev
-  resources:
-    static-locations: /resources/**
+    include: freemarker,mysql,redis,interceptor
   mvc:
-    static-path-pattern: /resources/**
+    favicon:
+      enabled: false
 
-debug: false
+debug: true
+
+server:
+  servlet-path: /common # 默认servlet至接受静态资源
 
 app:
   name: yjyboot

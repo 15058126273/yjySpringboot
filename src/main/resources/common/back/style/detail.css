@@ -1,0 +1,441 @@
+/***全局基本样式***/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+.DL_outBox {
+    position: relative;
+    background: url('../img/downloadImg1.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+}
+
+.DL_inputBox {
+    position: absolute;
+    top: 19%;
+    text-align: center;
+    width: 460px;
+    font-family: SimHei,"Microsoft Yahei";
+}
+
+.DL_inputBox h3 {
+    color: #fff;
+    font-size: 2.8rem;
+}
+
+.DL_inputBox h4 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-family: "Microsoft"
+}
+
+.DL_inputBox ul li.DL_input {
+    text-align: left;
+    width: 70%;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto;
+    color: #767d87;
+}
+
+.DL_inputBox ul .DL_input.last {
+    margin-left: 27%;
+    width: 50%;
+}
+
+.DL_input input {
+    height: 35px;
+    width: 80%;
+    border: 1px solid #bfc9d2;
+    border-radius: 2px;
+    font-size: 1rem;
+    text-indent: .5em;
+    background: #f7f7f7;
+}
+
+.DL_input span {
+    display: inline-block;
+    width:15%;
+}
+
+#remember {
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+.DL_inputBox button {
+    width: 50%;
+    height: 50px;
+    color: #fff;
+    background: #1888de;
+    border: none;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: SimHei,"Microsoft Yahei";
+}
+
+.DL_inputBox ul {
+    background: #fff;
+    padding: 50px 0;
+    margin-top: 20px;
+    box-shadow: 0 0 15px #3092e6;
+}
+
+.DL_inputBox li {
+    text-align: center;
+}
+
+.header:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    margin-top: 17px;
+    margin-left: 20px;
+}
+
+.state {
+    float: right;
+    margin-right: 100px;
+}
+
+.state ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.state ul li {
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    font-size: 1rem;
+    font-family: SimHei,"Microsoft Yahei";
+    color: #298de5;
+    margin-left: 20px;
+}
+
+.state ul li img {
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
+.state ul {
+    height: 100px;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 #c8c8c8;
+    min-width: 1280px;
+}
+
+.logo h1 {
+    font-family: SimHei,"Microsoft Yahei";
+    color: #298de5;
+    font-size: 2rem;
+}
+
+.logo h3 {
+    color: #298de5;
+    font-family: Arial, “Helvetica Neue”, Helvetica,"Microsoft Yahei";
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.headerImg {
+    width: 35px;
+}
+
+.items {
+    width: 20px;
+}
+
+.listBox {
+    background: #1f7ed0;
+    position: relative;
+    width: 300px;
+}
+
+.borderBox {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    z-index: 100;
+    background: url('../img/rightBorder.png') no-repeat center;
+    background-size: cover;
+    width: 15px;
+    height: 100%;
+}
+
+.borderBoxRight {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    z-index: 100;
+    background: url('../img/rightBorder.png') no-repeat center;
+    background-size: cover;
+    width: 15px;
+    display: none;
+    height: 100%;
+}
+
+.parentList {
+    width: 100%;
+    margin: 0 auto;
+    background: #288ce2;
+    line-height: 50px;
+    color: #fff;
+    font-family: "Microsoft YaHei",SimHei;
+    font-size: 1rem;
+    user-select: none;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+
+.parentList>img {
+    width: 25px;
+    vertical-align: middle;
+    margin-left: 13%;
+    margin-bottom: 5px;
+    margin-right: 5%;
+}
+
+.parentList span {
+    display: block;
+    float: right;
+    margin-right: 20%;
+    font-weight: bold;
+}
+
+.parentList:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.parentList ul {
+    width: 100%;
+    display: none;
+    padding: 20px 0;
+    background: #1f7ed0;
+}
+
+.parentList ul li {
+    background: #1f7ed0;
+}
+
+.parentList li img {
+    width: 10px;
+    margin-left: 17%;
+    margin-right: 5%;
+}
+
+#container {
+    min-width: 1028px;
+    /*max-width: 2560px;*/
+    margin: 0 auto;
+}
+
+.contentBox:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.contentBox {
+    min-width: 1280px;
+    position: relative;
+}
+
+.rightBox {
+    background: #fcfcfc;
+    min-width: 1175px;
+}
+
+.leftBox {
+    float: left;
+}
+
+.toLeftImg {
+    position: absolute;
+    right: 4px;
+    top: 200px;
+    z-index: 150;
+    cursor: pointer;
+}
+
+.toRightImg {
+    position: absolute;
+    left: 8px;
+    top: 200px;
+    z-index: 150;
+    display: none;
+    cursor: pointer;
+}
+
+.downListBox {
+    display: inline-block;
+}
+
+.downListBox {
+    margin-left: 35px;
+}
+
+.downListBox span {
+    font-family: "Microsoft YaHei", SimHei;
+    font-size: 1.1rem;
+    color: #14151d;
+}
+
+.rightBox>div {
+    /*width: 100%;*/
+    border-bottom: 1px solid #dddddd;
+}
+
+.rightBox>ul, .rightBox>div{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.rightBox ul {
+    width: 1135px;
+    margin: 0 auto;
+}
+
+.rightBox ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.rightBox ul li {
+    float: left;
+    color: #000000;
+    font-size: 16px;
+    font-family: "Microsoft YaHei", SimHei;
+}
+
+.rightBox ul li:nth-child(2) {
+    margin-left: 100px;
+}
+
+.rightBox ul li:nth-child(1) {
+    width: 120px;
+}
+
+.rightBox li span {
+    color: #ff0000;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.detailList li:nth-child(2) {
+    width: 400px;
+}
+
+.detailList li:nth-child(3) {
+    width: 200px;
+}
+
+.detailList i {
+    font-style: normal;
+    margin-left: 18px;
+}
+
+.detailList ul,.linkBox ul,.desc ul {
+    line-height: 70px;
+}
+
+.rightBox div.detailBack {
+    width: 180px;
+    line-height: 60px;
+    background: #1f7ed0;
+    border: 1px solid #aaa;
+    margin: 30px auto;
+    text-align: center;
+    border-radius: 4px;
+    padding: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px 5px #ddd;
+}
+
+.rightBox div.detailBack a {
+    color: #fff;
+    font-size: 18px;
+}
+
+.rightBox ul {
+    line-height: 70px;
+}
+
+/*.rightBox div.imgBox {
+    padding: 30px 20px;
+}*/
+
+.rightBox div.detailList li,.rightBox div.linkBox li{
+    height: 70px;
+}
+
+.rightBox div.imgBox li:nth-child(2) {
+    width: 180px;
+}
+
+div.imgBox ul {
+    line-height: 50px;
+}
+
+div.imgBox ul li:nth-child(2) {
+    line-height: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.copyTextBtn {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    background: url('../img/btnback.png') repeat center;
+    background-size: contain;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-family: "Microsoft YaHei", SimHei;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    margin: 20px 0;
+}
+
+/**** v = 0.1.1 *****/
+
+
+
+

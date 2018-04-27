@@ -1,0 +1,22 @@
+spring:
+  freemarker:
+    enabled: true # 是否启用freemarker
+    cache: false # 是否启用缓存
+    prefix: # 模板文件前缀
+    suffix: .ftl # 模板文件后缀
+    charset: UTF-8 # 模板文件编码
+    template-loader-path: classpath:/templates/ # 模板文件目录
+    check-template-location: true # 是否检查模板目录是否存在
+    content-type: text/html # 模板类型
+    request-context-attribute: req # RequestContext 引用
+    settings: # 更多配置
+      number_format: '0.##'  #数字格式化, 保留两位小数
+    allow-request-override: false # 是否允许 request 属性覆盖 controller 属性
+    allow-session-override: false # 是否允许 session 属性覆盖 controller 属性
+    expose-request-attributes: false # 设置在与模板合并之前，是否应该将所有HttpRequest属性添加到模型中。
+    expose-session-attributes: false # 设置在与模板合并之前，是否应该将所有HttpSession属性添加到模型中。
+    expose-spring-macro-helpers: true # 设置是否公开一个请求上下文，以供Spring的宏库使用，名称为“springMacroRequestContext”
+    prefer-file-system-access: true # 更喜欢文件系统访问模板加载。文件系统访问支持对模板更改进行热检测。
+#    view-names: # whitelist of view names that can be resolved
+
+

@@ -6,7 +6,7 @@ server:
 
 user:
   list:
-    - username: yjy3
-      password: 789
-    - userName: yjy4
-      PASS_WORD: 564
+    - nickname: yjy3
+      code: 789
+    - nickname: yjy4
+      code: 564
