@@ -50,9 +50,9 @@
             <td>
                 ${(bean.integral)!}
             </td>
-            <td>${(bean.comeTime?string('yyyy-MM-dd HH:mm'))!}</td>
+            <td>${(bean.addTime?string('yyyy-MM-dd HH:mm'))!}</td>
             <td>
-                <a href="${backBase }/room/dayScore.do?userId=${bean.userId}&start=${(bean.comeTime?string('yyyy-MM-dd'))!}"
+                <a href="${backBase }/room/dayScore.do?userId=${bean.userId}&start=${(bean.addTime?string('yyyy-MM-dd'))!}"
                    title="前面一周的数据">统计</a>
             </td>
         </tr>

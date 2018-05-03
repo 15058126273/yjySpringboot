@@ -100,8 +100,4 @@ public class Config extends BaseEntity {
         this.status = status;
     }
 
-    public String getContextPath() {
-        return "";
-    }
-
 }

@@ -8,7 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * desc
+ * Date参数格式化
+ *
+ * 尝试格式化java.util.Date类型的参数
  *
  * @Author yjy
  * @Date 2018-04-27 9:58
@@ -24,6 +26,11 @@ public class DateConverterConfig implements Converter<String, java.util.Date> {
     };
 
 
+    /**
+     * 这里将参数格式化成 java.sql.Date 为了方便后面用来拼接sql
+     * @param param 日期格式的字符串
+     * @return java.sql.Date
+     */
     @Override
     public java.sql.Date convert(String param) {
         if (StringUtils.isBlank(param)) {

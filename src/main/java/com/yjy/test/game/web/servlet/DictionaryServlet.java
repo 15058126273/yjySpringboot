@@ -20,6 +20,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * 初始化系统参数
@@ -28,22 +30,22 @@ import org.springframework.stereotype.Component;
  * @author wdy
  * @version ：2017年1月10日 上午11:44:22
  */
-@WebServlet(name = "dictionaryServlet", loadOnStartup = 1)
+@Component
+@WebServlet(name = "dictionaryServlet", urlPatterns = "", loadOnStartup = 1)
 public class DictionaryServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     private static final Logger log = LoggerFactory.getLogger(DictionaryServlet.class);
 
+    private WebApplicationContext wac;
     private ConfigService configService;//系统的配置参数
     private OptionItemService optionItemService;//下拉框的参数
 
-    @Autowired
     public void setConfigService(ConfigService configService) {
         this.configService = configService;
     }
 
-    @Autowired
     public void setOptionItemService(OptionItemService optionItemService) {
         this.optionItemService = optionItemService;
     }
@@ -56,9 +58,14 @@ public class DictionaryServlet extends HttpServlet {
      */
     @Override
     public void init() throws ServletException {
+        log.info("DictionaryServlet init.............................");
+        System.out.println("DictionaryServlet init.............................");
         try {
+            wac = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
+            setOptionItemService( wac.getBean (OptionItemService.class) );
+            setConfigService( wac.getBean (ConfigService.class) );
             List<OptionItem> fields = optionItemService.findListByProperty("isUse", 1);
-            List<OptionItem> optionSelects = null;
+            List<OptionItem> optionSelects;
             List<OptionItem> needSelects = null;
             Map<String, String> optionMap = new HashMap<String, String>();
             if (fields != null && !fields.isEmpty()) {
@@ -88,6 +95,7 @@ public class DictionaryServlet extends HttpServlet {
             RedisUtils.getInstance().setObject(Constants.ALL_CONFIG_MAP, configMap);
         } catch (Exception e) {
             log.error("数据字典的初始化时发生异常", e);
+            e.printStackTrace();
         }
         super.init();
     }

@@ -7,7 +7,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.io.Serializable;
 
 /**
- * desc
+ * BaseJpaRepository
  *
  * @Author yjy
  * @Date 2018-04-25 15:55

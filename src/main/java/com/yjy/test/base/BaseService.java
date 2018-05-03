@@ -1,7 +1,6 @@
 package com.yjy.test.base;
 
 import com.yjy.test.util.hibernate.Pagination;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 
 import java.io.Serializable;

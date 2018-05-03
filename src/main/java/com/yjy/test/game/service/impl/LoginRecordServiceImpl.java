@@ -108,7 +108,7 @@ public class LoginRecordServiceImpl extends BaseServiceImpl<LoginRecord, Integer
         Producer producer = new Producer(queue, loginRecord);
         new Thread(producer).start();
         if (!ConsumerLoginRecord.running) {
-            ConsumerLoginRecord consumer = new ConsumerLoginRecord(queue);
+            ConsumerLoginRecord consumer = new ConsumerLoginRecord(this, queue);
             new Thread(consumer).start();
             ConsumerLoginRecord.running = true;
         }

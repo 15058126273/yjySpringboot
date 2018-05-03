@@ -72,7 +72,7 @@ public class GameAPIController extends BaseBackController {
 
             Pagination p = roomUserService.findRoomScoresBy(roomUser, start, end, cpn(pageNo), CookieUtils.getPageSize(request));
             SimplePropertyPreFilter filter = new SimplePropertyPreFilter(RoomUser.class,
-                    "id", "roomId", "userId", "roomNo", "integral", "nickName", "code", "comeTime");
+                    "id", "roomId", "userId", "roomNo", "integral", "nickName", "code", "addTime");
             ajaxSuccessToJson(response, JSON.toJSONString(p, filter, SerializerFeature.BrowserCompatible));
             return;
         } catch (Exception e) {
@@ -121,7 +121,7 @@ public class GameAPIController extends BaseBackController {
             List<RoomUser> list = roomUserService.findDayScores(roomUser, start, end);
 
             SimplePropertyPreFilter filter = new SimplePropertyPreFilter(RoomUser.class,
-                    "integral", "comeTime");
+                    "integral", "addTime");
             ajaxSuccessToJson(response, JSON.toJSONString(list, filter, SerializerFeature.BrowserCompatible));
             return;
         } catch (Exception e) {

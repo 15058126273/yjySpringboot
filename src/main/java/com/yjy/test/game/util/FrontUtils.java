@@ -57,14 +57,14 @@ public class FrontUtils {
         }
         User user = (User) request.getSession().getAttribute(Constants.FRONT_USER);
         String location = RequestUtils.getLocation(request);
-        frontData(config, map, user, location);
+        frontData(request, map, user, location);
     }
 
-    public static void frontData(Config config, Map<String, Object> map, User user, String location) {
+    public static void frontData(HttpServletRequest request, Map<String, Object> map, User user, String location) {
         if (user != null) {
             map.put("user", user);
         }
-        String base = config.getContextPath() != null ? config.getContextPath() : "";
+        String base = request.getContextPath() != null ? request.getContextPath() : "";
         String frontBase = base + "/";
         map.put("base", base);
         map.put("frontBase", frontBase);

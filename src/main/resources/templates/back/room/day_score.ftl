@@ -29,7 +29,7 @@
             <td>${(player.code)!}</td>
             <td>${(player.nickName)!}</td>
             <td>${(bean.integral)!}</td>
-            <td>${(bean.comeTime?string('yyyy-MM-dd'))!}</td>
+            <td>${(bean.addTime?string('yyyy-MM-dd'))!}</td>
         </tr>
         </#list>
         <#else>

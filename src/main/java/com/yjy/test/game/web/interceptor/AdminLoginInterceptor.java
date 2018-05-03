@@ -25,6 +25,7 @@ import java.util.List;
  * @author wdy
  * @version ：2016年2月29日 下午6:22:56
  */
+// 这里导入前缀为 back.login 的配置参数
 @ConfigurationProperties(prefix = "back.login")
 public class AdminLoginInterceptor extends HandlerInterceptorAdapter {
 
@@ -46,7 +47,6 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter {
         if (exclude(uri)) {
             return true;
         }
-
         try {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
@@ -65,7 +65,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter {
                 Config config = configService.findThisConfig();
                 String path = null;
                 if (null != config) {
-                    path = StringUtils.isNotBlank(config.getContextPath()) ? config.getContextPath() : "";
+                    path = StringUtils.isNotBlank(request.getContextPath()) ? request.getContextPath() : "";
                 }
                 String reLogin = "/manager/admin/login.do";
                 if (StringUtils.isNotBlank(path) && path.length() > 1) {

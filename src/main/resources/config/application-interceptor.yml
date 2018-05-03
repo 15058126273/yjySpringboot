@@ -1,6 +1,6 @@
 front:
   login:
-    excludeUrls:
+    excludeUrls: # 这里配置的前台登入验证的白名单
       - /hello.sv
       - /hello2.sv
       - /index.jtk
@@ -16,7 +16,7 @@ front:
 
 back:
   login:
-    excludeUrls:
+    excludeUrls: # 这里配置的后台登入验证的白名单
       - /login.do
       - /logout.do
       - /game/scores.do

@@ -1,8 +1,6 @@
 package com.yjy.test.game.entity;
 
 import com.yjy.test.base.BaseEntity;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 
 import javax.persistence.*;
 import java.util.Date;

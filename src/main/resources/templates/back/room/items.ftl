@@ -34,8 +34,8 @@
             <td>${(bean.playNum)!}</td>
             <td>${(bean.integral)!}</td>
             <td>${(Application['optionMap']['roomPlayer' + bean.isPlayer])!}</td>
-            <td>${(bean.comeTime?string('yyyy-MM-dd HH:mm'))!}</td>
-            <td>${(bean.leaveTime?string('yyyy-MM-dd HH:mm'))!}</td>
+            <td>${(bean.addTime?string('yyyy-MM-dd HH:mm'))!}</td>
+            <td>${(bean.updateTime?string('yyyy-MM-dd HH:mm'))!}</td>
         </tr>
         </#list>
         <#else>

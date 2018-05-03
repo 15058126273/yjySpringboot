@@ -1,6 +1,5 @@
 package com.yjy.test.base;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
 
 /**

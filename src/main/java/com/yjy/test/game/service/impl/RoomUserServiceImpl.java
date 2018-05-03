@@ -89,15 +89,15 @@ public class RoomUserServiceImpl extends BaseServiceImpl<RoomUser, Long> impleme
             hql += " and user.code=:code";
         }
         if (null != start) {
-            hql += " and bean.come_time>=:start";
+            hql += " and bean.add_time>=:start";
         }
         if (null != end) {
-            hql += " and bean.come_time<=:end";
+            hql += " and bean.add_time<=:end";
         }
         String countSql = "select count(bean.id) " + hql;
         SQLQuery sqlQueryCount = em.createNativeQuery(countSql).unwrap(SQLQuery.class);
 
-        hql = "select bean.id as id,bean.room_id as roomId,bean.room_no as roomNo,  bean.user_id as userId, bean.integral as integral, user.nick_name as nickName, user.code as code,bean.come_time as comeTime " + hql + " order by bean.room_id desc,bean.id desc";
+        hql = "select bean.id as id,bean.room_id as roomId,bean.room_no as roomNo,  bean.user_id as userId, bean.integral as integral, user.nick_name as nickName, user.code as code,bean.add_time as addTime " + hql + " order by bean.room_id desc,bean.id desc";
         SQLQuery sqlQuery = em.createNativeQuery(hql).unwrap(SQLQuery.class);
 
         if (StringUtils.isNotBlank(roomNo)) {
@@ -134,7 +134,7 @@ public class RoomUserServiceImpl extends BaseServiceImpl<RoomUser, Long> impleme
         sqlQuery.addScalar("integral", StandardBasicTypes.INTEGER);
         sqlQuery.addScalar("nickName", StandardBasicTypes.STRING);
         sqlQuery.addScalar("code", StandardBasicTypes.STRING);
-        sqlQuery.addScalar("comeTime", StandardBasicTypes.TIMESTAMP);
+        sqlQuery.addScalar("addTime", StandardBasicTypes.TIMESTAMP);
 
         sqlQuery.setFirstResult(p.getFirstResult());
         sqlQuery.setMaxResults(p.getPageSize());
@@ -154,21 +154,21 @@ public class RoomUserServiceImpl extends BaseServiceImpl<RoomUser, Long> impleme
         if(null != bean) {
             userId = bean.getUserId();
         }
-        String sql = "select DATE_FORMAT(bean.come_time,'%Y-%m-%d') comeTime, SUM(bean.integral) integral from cg_room_user bean where bean.is_player=1";
+        String sql = "select DATE_FORMAT(bean.add_time,'%Y-%m-%d') addTime, SUM(bean.integral) integral from cg_room_user bean where bean.is_player=1";
         if(null != start) {
-            sql += " and bean.come_time>=:start";
+            sql += " and bean.add_time>=:start";
         }
         if(null != end) {
-            sql += " and bean.come_time<=:end";
+            sql += " and bean.add_time<=:end";
         }
         if(null != userId) {
             sql += " and bean.user_id=:userId";
         }
 
-        sql += " group by comeTime order by comeTime asc;";
+        sql += " group by add_time order by add_time asc;";
         SQLQuery sqlQuery = em.createNativeQuery(sql).unwrap(SQLQuery.class);
         sqlQuery.addScalar("integral",StandardBasicTypes.INTEGER);
-        sqlQuery.addScalar("comeTime",StandardBasicTypes.DATE);
+        sqlQuery.addScalar("addTime",StandardBasicTypes.DATE);
         if(null != start) {
             sqlQuery.setParameter("start", start);
         }

@@ -90,7 +90,7 @@ public class RoomController extends BaseFrontController {
             }
             p.setList(list);
             SimplePropertyPreFilter filter = new SimplePropertyPreFilter();
-            filter = new SimplePropertyPreFilter(RoomUser.class, "id", "roomId", "roomNo", "roomBaseWager", "comeTime", "roomGameNum", "gameMode");
+            filter = new SimplePropertyPreFilter(RoomUser.class, "id", "roomId", "roomNo", "roomBaseWager", "addTime", "roomGameNum", "gameMode");
             successAjaxToJson(response, JSON.toJSONString(p, filter, SerializerFeature.BrowserCompatible, SerializerFeature.WriteNullNumberAsZero, SerializerFeature.WriteNullStringAsEmpty), "");
             return;
         } catch (Exception e) {
@@ -142,7 +142,7 @@ public class RoomController extends BaseFrontController {
                 ru.setRoomGameNum(roomGameNum);
             }
             SimplePropertyPreFilter filter = new SimplePropertyPreFilter();
-            filter = new SimplePropertyPreFilter(RoomUser.class, "id", "userId", "code", "roomNo", "initIntegral", "integral", "comeTime",
+            filter = new SimplePropertyPreFilter(RoomUser.class, "id", "userId", "code", "roomNo", "initIntegral", "integral", "addTime",
                     "roomBaseWager", "roomStatus", "nickName", "headImg", "roomGameNum", "bankerMode");
             successAjaxToJson(response, JSON.toJSONString(list, filter, SerializerFeature.BrowserCompatible,
                     SerializerFeature.WriteNullNumberAsZero, SerializerFeature.WriteNullStringAsEmpty), "");

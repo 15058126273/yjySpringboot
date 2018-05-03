@@ -10,10 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.util.UrlPathHelper;
 
@@ -24,11 +21,12 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * desc
+ * 前台登入拦截器
  *
  * @Author yjy
  * @Date 2018-04-24 15:03
  */
+// 这里导入前缀为 front.login 的配置参数
 @ConfigurationProperties(prefix = "front.login")
 public class FrontLoginInterceptor extends HandlerInterceptorAdapter {
 
@@ -71,7 +69,7 @@ public class FrontLoginInterceptor extends HandlerInterceptorAdapter {
                 Config config = configService.findThisConfig();
                 String path = null;
                 if(null != config){
-                    path = StringUtils.isNotBlank(config.getContextPath()) ? config.getContextPath():"";
+                    path = StringUtils.isNotBlank(request.getContextPath()) ? request.getContextPath():"";
                 }
                 String reLogin = "/autho.jtk";
                 if(StringUtils.isNotBlank(path) && path.length() > 1) {

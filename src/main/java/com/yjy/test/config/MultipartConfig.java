@@ -3,11 +3,10 @@ package com.yjy.test.config;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import javax.servlet.MultipartConfigElement;
 
 /**
- * desc
+ * 配置tomcat上传限制
  *
  * @Author yjy
  * @Date 2018-04-24 14:38

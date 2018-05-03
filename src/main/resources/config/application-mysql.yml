@@ -1,40 +1,40 @@
 spring:
   datasource:
-    # Êı¾İ¿â·ÃÎÊÅäÖÃ
-    # Ö÷Êı¾İÔ´£¬Ä¬ÈÏµÄ
+    # æ•°æ®åº“è®¿é—®é…ç½®
+    # ä¸»æ•°æ®æºï¼Œé»˜è®¤çš„
     type: com.alibaba.druid.pool.DruidDataSource
     dbUrl: jdbc:mysql://localhost:3306/hotpot?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: yjy
     password: yyyyyy
     driverClassName: com.mysql.jdbc.Driver
 
-    # ÏÂÃæÎªÁ¬½Ó³ØµÄ²¹³äÉèÖÃ£¬Ó¦ÓÃµ½ÉÏÃæËùÓĞÊı¾İÔ´ÖĞ
-    # ³õÊ¼»¯´óĞ¡£¬×îĞ¡£¬×î´ó
+    # ä¸‹é¢ä¸ºè¿æ¥æ± çš„è¡¥å……è®¾ç½®ï¼Œåº”ç”¨åˆ°ä¸Šé¢æ‰€æœ‰æ•°æ®æºä¸­
+    # åˆå§‹åŒ–å¤§å°ï¼Œæœ€å°ï¼Œæœ€å¤§
     initialSize: 5
     minIdle: 5
     maxActive: 20
-    maxWait: 60000 # ÅäÖÃ»ñÈ¡Á¬½ÓµÈ´ı³¬Ê±µÄÊ±¼ä
-    timeBetweenEvictionRunsMillis: 60000 # ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó£¬µ¥Î»ÊÇºÁÃë
-    minEvictableIdleTimeMillis: 300000 # ÅäÖÃÒ»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä£¬µ¥Î»ÊÇºÁÃë
+    maxWait: 60000 # é…ç½®è·å–è¿æ¥ç­‰å¾…è¶…æ—¶çš„æ—¶é—´
+    timeBetweenEvictionRunsMillis: 60000 # é…ç½®é—´éš”å¤šä¹…æ‰è¿›è¡Œä¸€æ¬¡æ£€æµ‹ï¼Œæ£€æµ‹éœ€è¦å…³é—­çš„ç©ºé—²è¿æ¥ï¼Œå•ä½æ˜¯æ¯«ç§’
+    minEvictableIdleTimeMillis: 300000 # é…ç½®ä¸€ä¸ªè¿æ¥åœ¨æ± ä¸­æœ€å°ç”Ÿå­˜çš„æ—¶é—´ï¼Œå•ä½æ˜¯æ¯«ç§’
     validationQuery: SELECT 1 FROM DUAL
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
-    poolPreparedStatements: true # ´ò¿ªPSCache£¬²¢ÇÒÖ¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡
+    poolPreparedStatements: true # æ‰“å¼€PSCacheï¼Œå¹¶ä¸”æŒ‡å®šæ¯ä¸ªè¿æ¥ä¸ŠPSCacheçš„å¤§å°
     maxPoolPreparedStatementPerConnectionSize: 20
-    filters: stat,wall,log4j # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ£¬'wall'ÓÃÓÚ·À»ğÇ½
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # Í¨¹ıconnectPropertiesÊôĞÔÀ´´ò¿ªmergeSql¹¦ÄÜ£»ÂıSQL¼ÇÂ¼
-    useGlobalDataSourceStat: true # ºÏ²¢¶à¸öDruidDataSourceµÄ¼à¿ØÊı¾İ
+    filters: stat,wall,log4j # é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filtersï¼Œå»æ‰åç›‘æ§ç•Œé¢sqlæ— æ³•ç»Ÿè®¡ï¼Œ'wall'ç”¨äºé˜²ç«å¢™
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # é€šè¿‡connectPropertieså±æ€§æ¥æ‰“å¼€mergeSqlåŠŸèƒ½ï¼›æ…¢SQLè®°å½•
+    useGlobalDataSourceStat: true # åˆå¹¶å¤šä¸ªDruidDataSourceçš„ç›‘æ§æ•°æ®
   #JPA Configuration:
   jpa:
-    database: MYSQL 
+    database: MYSQL
     show-sql: true # Show or not log for each sql query
     generate-ddl: true # Hibernate ddl auto (create, create-drop, update)
     hibernate:
-      ddl-auto: update 
+      ddl-auto: update
       naming:
-        strategy: org.hibernate.cfg.ImprovedNamingStrategy 
-      
-    properties: 
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+    properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect

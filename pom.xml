@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.yjy.test</groupId>
     <version>1.0-SNAPSHOT</version>
     <artifactId>yjyboot-${project.version}</artifactId>
@@ -51,20 +50,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
-            <version>1.5.8.RELEASE</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
+        <!-- 如果没有此 log4j-web 导出的war将不能打印日志到文件!!! -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>2.7</version>
+        </dependency>
+
         <!-- freemarker -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -145,19 +145,23 @@
             <version>1.2.4</version>
         </dependency>
 
-        <!-- 打war包时加入此项， 告诉spring-boot tomcat相关jar包用外部的，不要打进去 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        <!--
+            打war包时加入此项 告诉spring-boot tomcat相关jar包用外部的 不要打进去
+            IDEA运行时需要将此依赖注释掉, 否则会无法运行
+         -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
     </dependencies>
 
     <build>
-        <finalName>${project.name}-${project.version}</finalName>
+        <finalName>${project.name}</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
+        <outputDirectory>target</outputDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -166,11 +170,27 @@
                     <include>**/*</include>
                 </includes>
             </resource>
+            <!-- 将自定义的Servlet(extends DispatcherServlet)默认xml配置文件打包至WEB-INF下
+            否则外部tomcat无法处理此Servlet -->
+            <resource>
+                <directory>src/main/extraConfig</directory>
+                <targetPath>${build.finalName}/WEB-INF/</targetPath>
+            </resource>
         </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.yjy.test.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <!--spring-boot为了保护application.yml和application.properties，修改了默认的占位符${...}为@...@-->
             <!--为了spring boot的yml和properties文件能够使用maven变量替换,使用${}占位符-->
@@ -181,6 +201,7 @@
                     <useDefaultDelimiters>true</useDefaultDelimiters>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

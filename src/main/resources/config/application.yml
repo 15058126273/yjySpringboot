@@ -1,16 +1,15 @@
 spring:
   profiles:
-    active: dev
-    include: freemarker,mysql,redis,interceptor
+    active: pro # 激活的配置文件
+    include: freemarker,mysql,redis,interceptor # 加载其他配置文件
   mvc:
     favicon:
-      enabled: false
+      enabled: true
 
-debug: true
+logging:
+  config: classpath:log4j2.xml # log4j2配置文件地址
+
+debug: true # 是否启用debug
 
 server:
-  servlet-path: /common # 默认servlet至接受静态资源
-
-app:
-  name: yjyboot
-  description: description about ${app.name} application
+  servlet-path: /common # 所有接口请求都交由自定义的Servlet处理了, 所以默认的servlet只用于处理静态资源

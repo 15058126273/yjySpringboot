@@ -54,14 +54,14 @@ public class BackUtils {
         }
         Admin user = (Admin) request.getSession().getAttribute(Constants.ADMIN_USER);
         String location = RequestUtils.getLocation(request);
-        frontData(config, map, user, location);
+        frontData(request, map, user, location);
     }
 
-    public static void frontData(Config config, Map<String, Object> map, Admin user, String location) {
+    public static void frontData(HttpServletRequest request, Map<String, Object> map, Admin user, String location) {
         if (user != null) {
             map.put("user", user);
         }
-        String base = config.getContextPath() != null ? config.getContextPath() : "";
+        String base = request.getContextPath();
         String backBase = base + "/manager/admin";
         map.put("base", base);
         map.put("backBase", backBase);

@@ -1,12 +1,7 @@
-logging:
-  config: classpath:config/log4j2-spring.xml
-
 server:
-  port: 8081
-
-user:
-  list:
-    - nickname: yjy1
-      code: 123
-    - nickname: yjy2
-      code: 456
+  port: 8082 # 嵌入server的运行端口
+  context-path: /yjyboot # 配置项目运行地址
+spring:
+  devtools:
+    restart:
+      exclude: classpath:common/**,classpath:templates/**
